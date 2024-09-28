@@ -1,0 +1,63 @@
+C51 COMPILER V9.54   LED_CAR                                                               09/28/2024 10:25:25 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LED_CAR
+OBJECT MODULE PLACED IN .\Objects\LED-CAR.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LED-CAR.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\L
+                    -ED-CAR.lst) TABS(2) OBJECT(.\Objects\LED-CAR.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          void delay(unsigned int time)
+   4          {
+   5   1          unsigned int i;
+   6   1          unsigned int j;
+   7   1          for(i=0; i<time; i++)
+   8   1          {
+   9   2              for(j=0; j<100; j++);
+  10   2          }
+  11   1      }
+  12          
+  13          sbit RF=P1^0;
+  14          sbit RB=P1^1;
+  15          sbit LF=P1^2;
+  16          sbit LB=P1^3;
+  17          sbit Double=P1^7;
+  18          
+  19          void main()
+  20          {
+  21   1        while(1)
+  22   1        {
+  23   2          while(Double==1)
+  24   2          {
+  25   3            RF = 1;
+  26   3            RB = 1;
+  27   3            LF = 1;
+  28   3            LB = 1;
+  29   3            
+  30   3            delay(1000);
+  31   3            RF = 0;
+  32   3            RB = 0;
+  33   3            LF = 0;
+  34   3            LB = 0;
+  35   3            delay(1000);
+  36   3            
+  37   3          }
+  38   2        } 
+  39   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     63    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
